@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sm.mapper.ClassMapper">
+
+    <select id="selectClassList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT 
+        	tb1.USER_NM
+        	,tb2.SEQ
+        	,tb2.PAY_TYPE
+        	,tb2.AMT
+        	,tb2.AMT_RATE
+        	,tb2.JOIN_TYPE
+        	,tb2.CLASS_TYPE
+        	,tb2.CLASS_NM
+        	,tb2.CLASS_TIME
+        	,tb2.ST_DATE
+        	,tb2.ED_DATE
+        	,tb2.JOIN_CNT
+        	,tb2.COMPLE_CNT
+        	,tb2.TERM
+        	,tb2.INCOME
+        	,tb2.ETC
+        FROM MEM01MT tb1, MEM02MT tb2
+        WHERE tb1.USER_NO = tb2.USER_NO
+        ORDER BY tb2.ST_DATE DESC 
+    </select>
+
+</mapper>
+

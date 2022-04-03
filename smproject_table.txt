@@ -1,0 +1,48 @@
+회원 테이블
+
+MEM01MT
+
+user_no
+user_nm
+mobile1
+mobile2
+mobile3
+join_date
+
+선생님 테이블
+TE01MT
+
+T_NO
+T_NM
+T_MOBILE1
+T_MOBILE2
+T_MOBILE3
+
+
+회원 수업 테이블
+MEM02MT
+
+SEQ
+USER_NO
+T_NO
+PAY_TYPE (C 카드 , M 현금 , T 이체)
+AMT 금액
+AMT_RATE (금액비율)
+JOIN_TYPE (횟수 C, 기간 T)
+CLASS_TYPE (S 개인,  T 단체)
+CLASS_NM (수업명)
+CLASS_TIME
+ST_DATE  (시작일)
+ED_DATE (종료일)
+JOIN_CNT(등록횟수)
+COMPLE_CNT(사용횟수)
+TERM(등록기간 1개월,2개월 등 )
+INCOME 수입
+ETC
+
+
+
+
+
+
+
