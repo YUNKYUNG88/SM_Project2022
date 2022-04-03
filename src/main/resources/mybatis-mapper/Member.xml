@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sm.mapper.MemberMapper">
+
+    <select id="selectMemberList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT USER_NO 
+        ,USER_NM
+        ,MOBILE
+        ,JOIN_DATE
+        FROM MEM01MT
+    </select>
+
+	<select id="selectMemberInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT USER_NO 
+        ,USER_NM
+        ,MOBILE
+        ,JOIN_DATE
+        FROM MEM01MT
+        WHERE USER_NO = #{userNo}
+    </select>
+	
+
+	<insert id="insertMember" parameterType="java.util.HashMap">
+		INSERT INTO MEM01MT ( USER_NO 
+        ,USER_NM
+        ,MOBILE
+        ,JOIN_DATE
+        ) VALUES (
+	      (SELECT IFNULL(MAX(USER_NO)+1,1) FROM MEM01MT),
+	      #{userNm},
+	      #{mobile},
+	      #{joinDate}
+	      
+        )
+	</insert>
+	
+	<update id="updateMember" parameterType="java.util.HashMap">
+		UPDATE MEM01MT
+		SET USER_NM = #{userNm}, MOBILE = #{mobile}, JOIN_DATE = #{joinDate}
+		WHERE USER_NO = #{userNo}
+	</update>
+
+</mapper>
