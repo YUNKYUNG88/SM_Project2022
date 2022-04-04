@@ -27,6 +27,47 @@
         WHERE tb1.USER_NO = tb2.USER_NO
         ORDER BY tb2.ST_DATE DESC 
     </select>
+    
+    <insert id="insertClass" parameterType="java.util.HashMap">
+		INSERT INTO MEM02MT ( SEQ 
+        ,USER_NO
+        ,T_NO
+        ,PAY_TYPE
+        ,AMT
+        ,AMT_RATE
+        ,JOIN_TYPE
+        ,CLASS_TYPE
+        ,CLASS_NM
+        ,CLASS_TIME
+        ,ST_DATE
+        ,ED_DATE
+        ,JOIN_CNT
+        ,COMPLE_CNT
+        ,TERM
+        ,INCOME
+        ,ETC
+        ) VALUES (
+	      (SELECT IFNULL(MAX(SEQ)+1,1) FROM MEM02MT)
+	      ,#{userNo}
+			,#{tNo}
+			,#{payType}
+			,#{amt}
+			,#{amtRate}
+			,#{joinType}
+			,#{classType}
+			,#{classNm}
+			,#{classTime}
+			,#{stDate}
+			,#{edDate}
+			,#{joinCnt}
+			,#{compleCnt}
+			,#{term}
+			,#{income}
+			,#{etc}
+	      
+        )
+       
+	</insert>
 
 </mapper>
 

@@ -46,7 +46,7 @@
 	                                                </div>
 	                                               <div class="col-md-6">
 	                                                    <div class="form-floating mb-3 mb-md-0">
-	                                                    	<select name="payType" id="payType">
+	                                                    	<select class="dataTable-selector" name="payType" id="payType">
 	                                                    		<option value="T">이체</option>
 	                                                    		<option value="C">카드</option>
 	                                                    		<option value="M">현금</option>
@@ -63,7 +63,7 @@
 	                                                </div>
 	                                                 <div class="col-md-6">
 	                                                    <div class="form-floating mb-3 mb-md-0">
-	                                                    	<select name="joinType" id="joinType">
+	                                                    	<select class="dataTable-selector" name="joinType" id="joinType">
 	                                                    		<option value="C">횟수</option>
 	                                                    		<option value="T">기간</option>
 	                                                    	</select>
@@ -74,6 +74,12 @@
 	                                                    <div class="form-floating">
 	                                                        <input class="form-control" id="classNm" name="classNm" type="text" />
 	                                                        <label for="classNm">수업명</label>
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-6">
+	                                                    <div class="form-floating">
+	                                                        <input class="form-control" id="classTime" name="classTime" type="text" />
+	                                                        <label for="classTime">시간</label>
 	                                                    </div>
 	                                                </div>
 	                                                <div class="col-md-6">
@@ -91,13 +97,20 @@
 	                                                 <div class="col-md-6">
 	                                                    <div class="form-floating">
 	                                                        <input class="form-control" id="joinCnt" name="joinCnt" type="text" />
-	                                                        <label for="joinCnt">등록횟수</label>
+	                                                        <label for="joinCnt">등록횟수(8회, 10회)</label>
 	                                                    </div>
 	                                                </div>
 	                                                <div class="col-md-6">
 	                                                    <div class="form-floating">
 	                                                        <input class="form-control" id="term" name="term" type="text" />
-	                                                        <label for="compleCnt">등록기간</label>
+	                                                        <label for="compleCnt">등록기간(1개월,2개월)</label>
+	                                                    </div>
+	                                                </div>
+	                                                
+	                                                 <div class="col-md-6">
+	                                                    <div class="form-floating">
+	                                                        <input class="form-control" id="amtRate" name="amtRate" type="text" />
+	                                                        <label for="amtRate">비율</label>
 	                                                    </div>
 	                                                </div>
 	                                                <div class="col-md-6">

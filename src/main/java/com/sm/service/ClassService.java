@@ -19,6 +19,9 @@ public class ClassService {
 		
 	}
 	
+	public int insertClass(HashMap params) {
+		return classMapper.insertClass(params);
+	}
 	
 	
 	

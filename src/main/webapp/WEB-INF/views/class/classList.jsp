@@ -54,6 +54,7 @@
                                             <th>수업명</th>
                                             <th>시간</th>
                                             <th>선생님</th>
+                                            <th>등록횟수</th>
                                             <th>등록기간</th>
                                             <th>금액</th>
                                             <th>수입</th>
@@ -62,21 +63,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    	<c:forEach items="${classList}" var="class">
+                                    	
+                                    	<c:forEach items="${classList}" var="cl">
                                     		<tr>
-	                                            <td><a href="javascript:classEdit('${class.SEQ}')">${class.ST_DATE}</a></td>
-	                                            <td>${class.USER_NM}</td>
-	                                            <td>${class.CLASS_NM}</td>
-												<td>${class.CLASS_TIME}</td>
-	                                            
-	                                            
-                                            <th>시간</th>
-                                            <th>선생님</th>
-                                            <th>등록기간</th>
-                                            <th>금액</th>
-                                            <th>수입</th>
-                                            <th>결제방법</th>
-                                            <th>비고</th>
+	                                            <td><a href="javascript:classEdit('${cl.SEQ}')">${cl.ST_DATE}</a></td>
+	                                            <td>${cl.USER_NM}</td>
+	                                            <td>${cl.CLASS_NM}</td>
+												<td>${cl.CLASS_TIME}</td>
+												<td>선생님</td>
+	                                            <td>${cl.JOIN_CNT}</td>
+	                                            <td>${cl.TERM}</td>
+	                                            <td>${cl.AMT}</td>
+                                           		<td>${cl.INCOME}</td>
+                                           		<td>${cl.PAY_TYPE}</td>
+                                           		<td>${cl.ETC}</td>
 	                                        </tr>
                                     	</c:forEach>
                                         
