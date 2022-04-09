@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sm.service.MemberService;
@@ -22,9 +23,9 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@RequestMapping("/memberList") 
-	public String memberList(HttpServletRequest request,  Model model) { 
+	public String memberList(HttpServletRequest request,  Model model, @RequestParam HashMap params) { 
 		
-		 HashMap params = new HashMap(); 
+		 
 		 List list = memberService.selectMemberList(params);
 		  
 		 model.addAttribute("memberList", list);
@@ -32,15 +33,26 @@ public class MemberController {
 	return "/member/memberList"; 
 	}
 	
+	@RequestMapping("/memberListPop") 
+	public String memberListPop(HttpServletRequest request,  Model model, @RequestParam HashMap params) { 
+		
+		 
+		 List list = memberService.selectMemberList(params);
+		  
+		 model.addAttribute("memberList", list);
+		 
+	return "/member/memberListPop"; 
+	}
+	
+	
 	@RequestMapping("/memberEdit" ) 
-	public String memberEdit(HttpServletRequest request,Model model) { 
+	public String memberEdit(HttpServletRequest request,Model model, @RequestParam HashMap params) { 
 		
 		String userNo = request.getParameter("userNo");
 		
 		String path = "/member/memberIns"; 
 		if(!"".equals(userNo) && userNo != null) {
-			HashMap params = new HashMap();
-			params.put("userNo", userNo);
+			
 			HashMap member = memberService.selectMemberInfo(params);
 			model.addAttribute("member",member);
 			
@@ -51,12 +63,9 @@ public class MemberController {
 	
 	@RequestMapping(value="/memberIns", method= RequestMethod.POST) 
 	@ResponseBody
-	public Map insertMember(HttpServletRequest request, Model model) { 
+	public Map insertMember(HttpServletRequest request, Model model, @RequestParam HashMap params) { 
 		
-		HashMap params = new HashMap(); 
-		params.put("userNm", request.getParameter("userNm"));
-		params.put("mobile", request.getParameter("mobile"));
-		params.put("joinDate", request.getParameter("joinDate"));
+	
 		
 		memberService.insertMember(params);
 		
@@ -68,14 +77,10 @@ public class MemberController {
 	
 	@RequestMapping(value="/memberUpd", method= RequestMethod.POST) 
 	@ResponseBody
-	public Map memberUpd(HttpServletRequest request, Model model) { 
+	public Map memberUpd(HttpServletRequest request, Model model ,@RequestParam HashMap params) { 
 		
-		HashMap params = new HashMap();
-		params.put("userNo", request.getParameter("userNo"));
-		params.put("userNm", request.getParameter("userNm"));
-		params.put("mobile", request.getParameter("mobile"));
-		params.put("joinDate", request.getParameter("joinDate"));
-		
+		System.out.println(params.toString());
+		System.out.println(request.getParameter("userType"));
 		memberService.updateMember(params);
 		
 		Map<String, Object> rmap = new HashMap<String, Object>();

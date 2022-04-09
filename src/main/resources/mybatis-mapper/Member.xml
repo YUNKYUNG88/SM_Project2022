@@ -10,7 +10,12 @@
         ,USER_NM
         ,MOBILE
         ,JOIN_DATE
+        ,USER_TYPE
         FROM MEM01MT
+        WHERE 1=1
+        <if test='userType != null '>
+        	AND USER_TYPE = #{userType}
+        </if>
     </select>
 
 	<select id="selectMemberInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
@@ -18,6 +23,7 @@
         ,USER_NM
         ,MOBILE
         ,JOIN_DATE
+        ,USER_TYPE
         FROM MEM01MT
         WHERE USER_NO = #{userNo}
     </select>
@@ -28,19 +34,21 @@
         ,USER_NM
         ,MOBILE
         ,JOIN_DATE
+        ,USER_TYPE
         ) VALUES (
 	      (SELECT IFNULL(MAX(USER_NO)+1,1) FROM MEM01MT),
 	      #{userNm},
 	      #{mobile},
-	      #{joinDate}
+	      #{joinDate},
+	      #{userType}
 	      
         )
 	</insert>
 	
 	<update id="updateMember" parameterType="java.util.HashMap">
 		UPDATE MEM01MT
-		SET USER_NM = #{userNm}, MOBILE = #{mobile}, JOIN_DATE = #{joinDate}
+		SET USER_NM = #{userNm}, MOBILE = #{mobile}, JOIN_DATE = #{joinDate} ,USER_TYPE =#{userType}
 		WHERE USER_NO = #{userNo}
-	</update>
+	</update> 
 
 </mapper>

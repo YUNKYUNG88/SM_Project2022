@@ -15,33 +15,33 @@
     <body class="sb-nav-fixed">
     <script type="text/javascript">
 
-		function openMemberEdit(userNo) {
-			if(userNo == '') {
-				var win = window.open("/memberEdit", "회원정보", "width=700,height=600");	
+		function selectMember(userType,userNo, userNm) {
+			console.log(userNo);
+			console.log(userNm);
+			
+			if(userType == 'T') {
+				$("#tNo",opener.document).val(userNo);
+				$("#tNm",opener.document).val(userNm);
+				self.close();
+				
 			} else {
-				var win = window.open("/memberEdit?userNo="+userNo, "회원정보", "width=700,height=600");	
+				$("#userNo",opener.document).val(userNo);
+				$("#userNm",opener.document).val(userNm);
+				self.close();
 			}
 			
-			
-
 		}
-		
 
 	</script>
       
       
         <div id="layoutSidenav"> 
-            <c:import url="../page/lnb.jsp"></c:import>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">회원 리스트</h1>
                        	
-                       <div class="d-flex align-items-center justify-content-between mt-4 mb-1">
-	                       	<a class="small" href=""></a>
-	                        <a class="btn btn-primary" href="javascript:openMemberEdit('');">회원등록</a>
-                       </div>
-                            
+               
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -51,7 +51,6 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                        	 <th></th>
                                             <th>이름</th>
                                             <th>핸드폰번호</th>
                                             <th>등록일</th>
@@ -60,11 +59,7 @@
                                     <tbody>
                                     	<c:forEach items="${memberList}" var="member">
                                     		<tr>
-                                    			<td>
-                                    			<c:if test="${member.USER_TYPE eq 'T'}">선생님</c:if>
-                                    			<c:if test="${member.USER_TYPE eq 'M'}">회원</c:if>
-                                    			</td>
-	                                            <td><a href="javascript:openMemberEdit('${member.USER_NO}')">${member.USER_NM}</a></td>
+	                                            <td><a href="javascript:selectMember('${member.USER_TYPE }','${member.USER_NO}','${member.USER_NM }')">${member.USER_NM}</a></td>
 	                                            <td>${member.MOBILE}</td>
 	                                            <td>${member.JOIN_DATE}</td>
 	                                        </tr>

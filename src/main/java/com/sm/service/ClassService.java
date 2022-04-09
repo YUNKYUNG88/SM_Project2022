@@ -22,6 +22,28 @@ public class ClassService {
 	public int insertClass(HashMap params) {
 		return classMapper.insertClass(params);
 	}
+	public HashMap selectClassInfo(HashMap params) {
+		return classMapper.selectClassInfo(params);
+		
+	}
+	public int updateClass(HashMap params) {
+		return classMapper.updateClass(params);
+	}
+	
+	
+	public List selectLessonDate(HashMap params) {
+		return classMapper.selectLessonDate(params);
+		
+	}
+	
+	public int insertLessonDate(HashMap params) {
+		return classMapper.insertLessonDate(params);
+	}
+	public int deleteLessonDate(HashMap params) {
+		return classMapper.deleteLessonDate(params);
+	}
+	
+	
 	
 	
 	
