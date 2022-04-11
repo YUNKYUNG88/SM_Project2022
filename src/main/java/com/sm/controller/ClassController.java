@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sm.service.ClassService;
 
 @Controller 
-public class ClassListController {
+public class ClassController {
  
 	@Autowired 
-	private ClassService classService;
+	private ClassService classService; 
 	
 	@RequestMapping("/classList") 
-	public String classList(HttpServletRequest request,  Model model) { 
+	public String classList(HttpServletRequest request,  Model model, @RequestParam HashMap params) { 
 		
-		 HashMap params = new HashMap(); 
+		
 		 List list = classService.selectClassList(params);
 		  
 		 model.addAttribute("classList", list);

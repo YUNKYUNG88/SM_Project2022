@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sm.mapper.CalculateMapper">
+
+    <select id="selectCalculateSum" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT SUM(T_AMT) AS T_AMT
+			,SUM(C_AMT) AS C_AMT
+			,SUM(M_AMT) AS M_AMT
+			,SUM(T_INCOME) AS T_INCOME
+			,SUM(C_INCOME) AS C_INCOME
+			,SUM(M_INCOME) AS M_INCOME
+			,SUM(T_PAY) AS T_PAY
+			,SUM(C_PAY) AS C_PAY
+			,SUM(M_PAY) AS M_PAY
+			,SUM(REFUND_AMT) AS S_REFUND_AMT
+		FROM (
+			SELECT 
+			CASE PAY_TYPE 
+			WHEN 'T' THEN AMT 
+			ELSE 0 END AS T_AMT
+			,
+			CASE PAY_TYPE 
+			WHEN 'C' THEN AMT 
+			ELSE 0 END AS C_AMT
+			,
+			CASE PAY_TYPE 
+			WHEN 'M' THEN AMT 
+			ELSE 0 END AS M_AMT
+			,CASE PAY_TYPE 
+			WHEN 'T' THEN INCOME 
+			ELSE 0 END AS T_INCOME
+			,
+			CASE PAY_TYPE 
+			WHEN 'C' THEN INCOME 
+			ELSE 0 END AS C_INCOME
+			,
+			CASE PAY_TYPE 
+			WHEN 'M' THEN INCOME 
+			ELSE 0 END AS M_INCOME
+			,CASE PAY_TYPE 
+			WHEN 'T' THEN PAY 
+			ELSE 0 END AS T_PAY
+			,
+			CASE PAY_TYPE 
+			WHEN 'C' THEN PAY 
+			ELSE 0 END AS C_PAY
+			,
+			CASE PAY_TYPE 
+			WHEN 'M' THEN PAY 
+			ELSE 0 END AS M_PAY
+			, REFUND_AMT
+		FROM (
+			SELECT PAY_TYPE, AMT, IFNULL(REFUND_AMT,0) AS REFUND_AMT, (IFNULL(AMT,0) - IFNULL(INCOME,0)) AS PAY, IFNULL(INCOME,0) AS INCOME
+			FROM MEM02MT
+			WHERE 1=1
+			AND T_NO = #{tNo}
+			AND ST_DATE BETWEEN #{stDate} AND #{edDate}
+			)
+		)
+	
+    </select>
+    
+     <select id="selectCalculateList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+       SELECT
+        	tb1.SEQ 
+        	,(SELECT USER_NM FROM MEM01MT sub  WHERE sub.USER_NO = tb1.USER_NO) AS USER_NM
+        	, (SELECT USER_NM FROM MEM01MT sub WHERE sub.USER_NO = tb1.T_NO ) AS T_NM
+        	,tb1.SEQ
+        	,tb1.PAY_TYPE
+        	,tb1.AMT
+        	,tb1.AMT_RATE
+        	,tb1.JOIN_TYPE
+        	,tb1.CLASS_TYPE
+        	,tb1.CLASS_NM
+        	,tb1.CLASS_TIME
+        	,tb1.ST_DATE
+        	,tb1.ED_DATE
+        	,tb1.JOIN_CNT
+        	,tb1.COMPLE_CNT
+        	,tb1.TERM
+        	,tb1.INCOME
+        	,tb1.ETC
+        	,tb1.REFUND_AMT
+        	,tb1.REFUND_DATE
+        FROM  MEM02MT tb1
+        WHERE 1=1
+        AND T_NO = #{tNo}
+		AND ST_DATE BETWEEN #{stDate} AND #{edDate}
+        ORDER BY tb1.ST_DATE DESC , CLASS_TIME
+    </select>
+    
+
+</mapper>
+

@@ -63,8 +63,6 @@
 							<input type="text" name="tNm" value=""/>
 							회원
 							<input type="text" name="userNm" value=""/>
-			                
-			                
 			                <button type="submit" class="btn">Search</button>
 			            </form>
 
