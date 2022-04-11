@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="utf-8">
     <head>
@@ -57,7 +59,8 @@
 						    <div class="card">
 						      <div class="card-body">
 						        <h5 class="card-title">카드</h5>
-						        <p class="card-text">${sumInfo.C_AMT}</p>
+						        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_AMT }" pattern="#,###" />
+
 						      </div>
 						    </div>
 						  </div>
@@ -65,7 +68,7 @@
 						    <div class="card">
 						       <div class="card-body">
 						        <h5 class="card-title">현금</h5>
-						        <p class="card-text">${sumInfo.M_AMT}</p>
+						        <p class="card-text"><p class="card-text"><fmt:formatNumber value="${sumInfo.M_AMT }" pattern="#,###" /></p>
 						      </div>
 						    </div>
 						  </div>
@@ -73,7 +76,7 @@
 						    <div class="card">
 						       <div class="card-body">
 						        <h5 class="card-title">이체</h5>
-						        <p class="card-text">${sumInfo.T_AMT}</p>
+						        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_AMT }" pattern="#,###" /></p>
 						      </div>
 						    </div>
 						  </div>
@@ -81,7 +84,7 @@
 						    <div class="card">					      
 						      <div class="card-body">
 						        <h5 class="card-title">총 합계</h5>
-						        <p class="card-text">${sumInfo.T_AMT + sumInfo.M_AMT +sumInfo.C_AMT}</p>
+						        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_AMT + sumInfo.M_AMT +sumInfo.C_AMT }" pattern="#,###" /></p>
 						      </div>
 						    </div>
 						  </div>
@@ -89,7 +92,7 @@
 					    <div class="card">
 					      <div class="card-body">
 					        <h5 class="card-title">수입 카드</h5>
-					        <p class="card-text">${sumInfo.C_INCOME}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_INCOME}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -97,7 +100,7 @@
 					    <div class="card">
 					       <div class="card-body">
 					        <h5 class="card-title">수입 현금</h5>
-					        <p class="card-text">${sumInfo.M_INCOME}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.M_INCOME}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -105,7 +108,7 @@
 					    <div class="card">
 					       <div class="card-body">
 					        <h5 class="card-title">수입 이체</h5>
-					        <p class="card-text">${sumInfo.T_INCOME}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_INCOME}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -113,7 +116,7 @@
 					    <div class="card">					      
 					      <div class="card-body">
 					        <h5 class="card-title">수입 총 합계</h5>
-					        <p class="card-text">${sumInfo.T_INCOME + sumInfo.M_INCOME +sumInfo.C_INCOME}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_INCOME + sumInfo.M_INCOME +sumInfo.C_INCOME}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -121,7 +124,7 @@
 					    <div class="card">
 					      <div class="card-body">
 					        <h5 class="card-title">PAY 카드</h5>
-					        <p class="card-text">${sumInfo.C_PAY}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_PAY}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -129,7 +132,7 @@
 					    <div class="card">
 					       <div class="card-body">
 					        <h5 class="card-title">PAY 현금</h5>
-					        <p class="card-text">${sumInfo.M_PAY}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.M_PAY}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -137,7 +140,7 @@
 					    <div class="card">
 					       <div class="card-body">
 					        <h5 class="card-title">PAY 이체</h5>
-					        <p class="card-text">${sumInfo.T_PAY}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_PAY}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -145,7 +148,7 @@
 					    <div class="card">					      
 					      <div class="card-body">
 					        <h5 class="card-title">PAY 총 합계</h5>
-					        <p class="card-text">${sumInfo.T_PAY + sumInfo.M_PAY +sumInfo.C_PAY}</p>
+					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_PAY + sumInfo.M_PAY +sumInfo.C_PAY}" pattern="#,###" /></p>
 					      </div>
 					    </div>
 					  </div>
@@ -213,11 +216,11 @@
 	                                           		<c:if test="${cal.PAY_TYPE eq 'M'}">현금 </c:if>
 	                                           		<c:if test="${cal.PAY_TYPE eq 'C'}">카드 </c:if>
                                            		</td>
-	                                            <td>${cal.AMT}</td>
-	                                            <td>${cal.AMT-cal.INCOME}</td>
-                                           		<td>${cal.INCOME}</td>
+	                                            <td><fmt:formatNumber value="${cal.AMT}" pattern="#,###" /></td>
+	                                            <td><fmt:formatNumber value="${cal.AMT-cal.INCOME}" pattern="#,###" /></td>
+                                           		<td><fmt:formatNumber value="${cal.INCOME}" pattern="#,###" /></td>
                                            		<td>${cal.REFUND_DATE}</td>
-                                           		<td>${cal.REFUND_AMT}</td>
+                                           		<td><fmt:formatNumber value="${cal.REFUND_AMT}" pattern="#,###" /></td>
 	                                        </tr>
                                     	</c:forEach>
                                     		<tr>
@@ -226,11 +229,11 @@
 	                                            <td></td>
 	                                            <td></td>
 	                                            <td></td>
-	                                            <td>${totalAmt}</td>
-	                                            <td>${totalPay}</td>
-                                           		<td>${totalIncome}</td>
+	                                            <td><fmt:formatNumber value="${totalAmt}" pattern="#,###" /></td>
+	                                            <td><fmt:formatNumber value="${totalPay}" pattern="#,###" /></td>
+                                           		<td><fmt:formatNumber value="${totalIncome}" pattern="#,###" /></td>
                                            		<td></td>
-                                           		<td>${totalRefund}</td>
+                                           		<td><fmt:formatNumber value="${totalRefund}" pattern="#,###" /></td>
 	                                        </tr>
                                         
                                        
