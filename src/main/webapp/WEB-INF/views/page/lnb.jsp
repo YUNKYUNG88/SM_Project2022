@@ -10,15 +10,15 @@
                    <div class="sb-sidenav-menu-heading">SM</div>
                    <a class="nav-link" href="/memberList">
                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                      	회원관리
+                      	회원 관리
                    </a>
                    <a class="nav-link" href="/classList">
                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                      	수업일정
+                      	수업 관리
                    </a>
                    <a class="nav-link" href="/calculateList">
                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                      	정산
+                      	정산 관리
                    </a>
                  
                </div>

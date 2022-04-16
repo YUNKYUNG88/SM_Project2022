@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>수업 리스트</title>
+        <title>수업 일정</title>
         <link href="css/styles.css" rel="stylesheet" />
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
@@ -53,35 +53,30 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">수업 리스트</h1>
+                          <span class="d-block p-3 fs-2 fw-bold text-dark">수업 일정</span>
                         <form name="delFrm" id="delFrm" action="/lessonDel" method="post">
                         	<input type="hidden" name="seq" id="seq" value=""/>
                         	<input type="hidden" name="classSeq" value="${params.classSeq}"/>
                         </form>
                        	<form name="frm" id="frm" action="/lessonIns" method="post">
 						<input type="hidden" name="classSeq" value="${params.classSeq}"/>
-							<div class="container gap-3">
-							  <!-- Content here -->
-							 
-							   <div class="row g-2 mb-3">
+							
+							
+						</form>
+               
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <div class="row g-2 mb-3">
 								  <div class="col-md">
 								    <div class="input-group mb-3">
 									  <span class="input-group-text" id="basic-addon1">날짜</span>
 									  <input type="text" class="form-control" aria-label="classDate" name="classDate" id="classDate" value="" aria-describedby="basic-addon1">
 									   <span class="input-group-text" id="basic-addon1">시간</span>
 									  <input type="text" id="classTime" name="classTime" class="form-control" value="">
-									  <button type="button" class="btn btn-primary"  onclick="createLesson();">등록</button>
+									  <button type="button" class="btn btn-darkgray"  onclick="createLesson();">등록</button>
 									</div>
 								  </div>
 								</div>
-							</div>
-							
-						</form>
-               
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                               	수업
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -97,7 +92,7 @@
                                     		<tr>
 	                                            <td>${lesson.CLASS_DATE}</td>
 	                                            <td>${lesson.CLASS_TIME}</td>
-	                                            <td><button type="button" class="btn btn-primary"  onclick="deleteLesson('${lesson.SEQ}');">삭제</button></td>
+	                                            <td><button type="button" class="btn btn-gray text-dark btn-sm"  onclick="deleteLesson('${lesson.SEQ}');">삭제</button></td>
 	                                        </tr>
                                     	</c:forEach>
                                         

@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>회원 리스트</title>
+        <title>회원 수정</title>
         <link href="css/styles.css" rel="stylesheet" />
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
@@ -61,7 +61,7 @@
     </head>
     <body >
   
-	    <div class="bg-primary p-2 mb-3 text-white text-center bg-opacity-75 fw-bold fs-5" >회원 수정</div>
+	   <div class="p-2 mb-3 text-dark text-center fw-bold fs-3" >회원 수정</div>
 		 <form name="frm" id="frm" action="/classUpd" method="post">
 		 <input type="hidden" name="userNo" value="${member.USER_NO}"/>
 		 
@@ -108,7 +108,7 @@
 			</div>
 		</form>
 		<div class="d-grid gap-2 col-1 mx-auto">
-	      <button type="button" class="btn btn-primary"  onclick="createMember();">수정</button>
+	      <button type="button" class="btn btn-darkgray"  onclick="createMember();">수정</button>
 	    </div>
     
     

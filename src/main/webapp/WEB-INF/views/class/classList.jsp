@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>수업 리스트</title>
+        <title>수업 관리</title>
         <link href="css/styles.css" rel="stylesheet" />
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
@@ -48,45 +48,62 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">수업 리스트</h1>
-                       	
-                       <div class="d-flex align-items-center justify-content-between mt-4 mb-1">
-	                       	<a class="small" href=""></a>
-	                        <a class="btn btn-primary" href="/classEdit">수업등록</a>
-                       </div>
-                       
-                       <form class="well form-search" action="/classList">
-                       		기간
-			                <input type="text" name="stDate" id="stDate" value=""/>~
-			                <input type="text" name="edDate" id="edDate" value=""/>
-			                            선생님
-							<input type="text" name="tNm" value=""/>
-							회원
-							<input type="text" name="userNm" value=""/>
-			                <button type="submit" class="btn">Search</button>
-			            </form>
-
+                       <span class="d-block p-3 fs-2 fw-bold text-dark">수업 관리</span>
+                       <i class="fas fa-table me-1"></i>
+                          <div class="card-header">
+                               	<form name="frm" id="frm" action="/classList" method="get">
+				         			<div class="row row-cols-9 align-item-center mt-2">
+									  <div class="text-end col-0 mt-2">
+									      선생님
+									  </div>
+									  <div class="col">
+									 	<input type="text" class="form-control" name="tNm" value=""/>
+									  </div>
+									  <div class="text-end col-0 mt-2">
+									        회원
+									  </div>
+									  <div class="col">
+										<input type="text" class="form-control" name="userNm" value=""/>
+									  </div>
+									  <div class="text-end col-0 mt-2">
+									      기간
+									  </div>
+									  <div class="col">
+									  	<input type="text" class="form-control mb-2" placeholder="시작일" aria-label="시작일" name="stDate" id="stDate"  value=""/>
+									  </div>
+									  <div class="text-center col-99 mt-2">
+									    ~
+									  </div>
+									  <div class="col">
+									  	<input type="text" class="form-control mb-2" placeholder="종료일" aria-label="종료일" name="edDate" id="edDate"  value=""/>
+									  </div>
+									  <div class="col-1 ms-sm-2">
+									  	<button type="submit" class="btn btn-darkgray" onclick="searchSubmit();">검색</button>
+									  </div>
+									  <div class="col-1 ms-sm-1">
+									    <a class="small" href=""></a>
+	                                    <a class="btn btn-darkgray" href="/classEdit">등록</a>
+	                                  </div>
+								  </div>
+				      			</form>
+                         </div>
                             
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                               	수업 리스트
-                            </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>등록일자</th>
-                                            <th>회원 성함</th>
-                                            <th>수업명</th>
-                                            <th>시간</th>
-                                            <th>선생님</th>
-                                            <th>등록횟수</th>
-                                            <th>등록기간</th>
-                                            <th>금액</th>
-                                            <th>수입</th>
-                                            <th>결제방법</th>
-                                            <th>비고</th>
+                                            <th class="text-center">등록일자</th>
+                                            <th class="text-center">회원 성함</th>
+                                            <th class="text-center">수업명</th>
+                                            <th class="text-center">시간</th>
+                                            <th class="text-center">선생님</th>
+                                            <th class="text-center">등록횟수</th>
+                                            <th class="text-center">등록기간</th>
+                                            <th class="text-center">금액</th>
+                                            <th class="text-center">수입</th>
+                                            <th class="text-center">결제방법</th>
+                                            <th class="text-center">비고</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -110,7 +127,7 @@
                                            		</td>
                                            		<td>${cl.ETC}</td>
                                            		<td>
-                                           			<a class="btn btn-primary" href="javascript:classPop('${cl.SEQ }');">수업</a>
+                                           			<a class="btn btn-gray text-dark btn-sm " href="javascript:classPop('${cl.SEQ }');">수업일정</a>
                                            		</td>
 	                                        </tr>
                                     	</c:forEach>

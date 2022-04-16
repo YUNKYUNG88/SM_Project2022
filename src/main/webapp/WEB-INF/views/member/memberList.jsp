@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>회원 리스트</title>
+        <title>회원 관리</title>
         <link href="css/styles.css" rel="stylesheet" />
          
     </head>
@@ -35,26 +35,52 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">회원 리스트</h1>
-                       	
-                       <div class="d-flex align-items-center justify-content-between mt-4 mb-1">
-	                       	<a class="small" href=""></a>
-	                        <a class="btn btn-primary" href="javascript:openMemberEdit('');">회원등록</a>
-                       </div>
-                            
-                        <div class="card mb-4">
+                        <span class="d-block p-3 fs-2 fw-bold text-dark">회원 관리</span>
+                          <i class="fas fa-table me-1"></i>
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                               	회원 리스트
+                               	<div class="row row-cols-9 align-item-center mt-2">
+									  <div class="text-end col-0 mt-2">
+									      선생님
+									  </div>
+									  <div class="col">
+									 	<input type="text" class="form-control" name="tNm" value=""/>
+									  </div>
+									  <div class="text-end col-0 mt-2">
+									        회원
+									  </div>
+									  <div class="col">
+										<input type="text" class="form-control" name="userNm" value=""/>
+									  </div>
+									  <div class="text-end col-0 mt-2">
+									      기간
+									  </div>
+									  <div class="col">
+									  	<input type="text" class="form-control mb-2" placeholder="시작일" aria-label="시작일" name="stDate" id="stDate"  value=""/>
+									  </div>
+									  <div class="text-center col-99 mt-2">
+									    ~
+									  </div>
+									  <div class="col">
+									  	<input type="text" class="form-control mb-2" placeholder="종료일" aria-label="종료일" name="edDate" id="edDate"  value=""/>
+									  </div>
+									  <div class="col-1 ms-sm-2">
+									  	<button type="submit" class="btn btn-darkgray" onclick="searchSubmit();">검색</button>
+									  </div>
+									  <div class="col-1 ms-sm-1">
+									    <a class="small" href=""></a>
+	                                    <a class="btn btn-darkgray" href="javascript:openMemberEdit('');">등록</a>
+	                                  </div>
+								  </div>
+                                
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                        	 <th></th>
-                                            <th>이름</th>
-                                            <th>핸드폰번호</th>
-                                            <th>등록일</th>
+                                           <th class="text-center">구분</th>
+                                           <th class="text-center">이름</th>
+                                           <th class="text-center">핸드폰번호</th>
+                                           <th class="text-center">등록일</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -74,7 +100,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

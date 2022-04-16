@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>정산</title>
+        <title>정산 관리</title>
         <link href="css/styles.css" rel="stylesheet" />
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
@@ -54,146 +54,178 @@
            
             <div id="layoutSidenav_content">
                 <main>
-                	<div class="row row-cols-1 row-cols-md-4 g-1" style="width: 2010px; margin-left: 24px">
-	                	 <div class="col">
-						    <div class="card">
-						      <div class="card-body">
-						        <h5 class="card-title">카드</h5>
-						        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_AMT }" pattern="#,###" />
 
-						      </div>
-						    </div>
-						  </div>
-						  <div class="col">
-						    <div class="card">
-						       <div class="card-body">
-						        <h5 class="card-title">현금</h5>
-						        <p class="card-text"><p class="card-text"><fmt:formatNumber value="${sumInfo.M_AMT }" pattern="#,###" /></p>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="col">
-						    <div class="card">
-						       <div class="card-body">
-						        <h5 class="card-title">이체</h5>
-						        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_AMT }" pattern="#,###" /></p>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="col">
-						    <div class="card">					      
-						      <div class="card-body">
-						        <h5 class="card-title">총 합계</h5>
-						        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_AMT + sumInfo.M_AMT +sumInfo.C_AMT }" pattern="#,###" /></p>
-						      </div>
-						    </div>
-						  </div>
-					  <div class="col">
-					    <div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">수입 카드</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_INCOME}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					    <div class="col">
-					    <div class="card">
-					       <div class="card-body">
-					        <h5 class="card-title">수입 현금</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.M_INCOME}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col">
-					    <div class="card">
-					       <div class="card-body">
-					        <h5 class="card-title">수입 이체</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_INCOME}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col">
-					    <div class="card">					      
-					      <div class="card-body">
-					        <h5 class="card-title">수입 총 합계</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_INCOME + sumInfo.M_INCOME +sumInfo.C_INCOME}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col">
-					    <div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">PAY 카드</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_PAY}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col">
-					    <div class="card">
-					       <div class="card-body">
-					        <h5 class="card-title">PAY 현금</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.M_PAY}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col">
-					    <div class="card">
-					       <div class="card-body">
-					        <h5 class="card-title">PAY 이체</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_PAY}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col">
-					    <div class="card">					      
-					      <div class="card-body">
-					        <h5 class="card-title">PAY 총 합계</h5>
-					        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_PAY + sumInfo.M_PAY +sumInfo.C_PAY}" pattern="#,###" /></p>
-					      </div>
-					    </div>
-					  </div>
-					 
-					
-					</div>
                 	
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">정산</h1>
-                            
+                        <span class="d-block p-3 fs-2 fw-bold text-dark">정산 관리</span>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                               	<form name="frm" id="frm" action="/calculateList" method="get">
-			         			<div class="row row-cols-4">
-							    <div class="col">
-								    <input type="hidden" name="tNo" id="tNo"  value="${params.tNo}"/>
-								    <input type="text" class="form-control" placeholder="선생님" aria-label="선생님" name="tNm" id="tNm" onclick="selectUser('T')" value="${params.tNm}" readonly="readonly"/>
-							    </div>
-							    <div class="col">
-							    	<input type="text" class="form-control" placeholder="시작일" aria-label="시작일" name="stDate" id="stDate"  value="${params.stDate}"/>
-							    </div>
-							    <div class="col">
-							    	<input type="text" class="form-control" placeholder="종료일" aria-label="종료일" name="edDate" id="edDate"  value="${params.edDate}"/>
-							    </div>
-							    <div class="col">
-							    	<button type="button" class="btn btn-primary" onclick="searchSubmit();">검색</button>
-							    </div>
-							 </div>
-			      		</form>
+								<form name="frm" id="frm" action="/calculateList" method="get">
+				         			<div class="row row-cols-6 align-item-center mt-2">
+									  <div class="text-end col-0 mt-2">
+									      선생님
+									  </div>
+									  <div class="col">
+									   <input type="hidden" name="tNo" id="tNo"  value="${params.tNo}"/>
+									 	<input type="text" class="form-control" name="tNm" id="tNm" value="${params.tNm}" onclick="selectUser('T')" readonly= "readonly"/>
+									  </div>
+									  <div class="text-end col-0 mt-2">
+									      기간
+									  </div>
+									  <div class="col">
+									  	<input type="text" class="form-control mb-2" placeholder="시작일" aria-label="시작일" name="stDate" id="stDate"  value=""/>
+									  </div>
+									  <div class="text-center col-99 mt-2">
+									    ~
+									  </div>
+									  <div class="col">
+									  	<input type="text" class="form-control mb-2" placeholder="종료일" aria-label="종료일" name="edDate" id="edDate"  value=""/>
+									  </div>
+									  <div class="col-1 ms-sm-2">
+									  	<button type="submit" class="btn btn-darkgray" onclick="searchSubmit();">검색</button>
+									  </div>
+									
+								  </div>
+				      			</form>
                             </div>
                             <div class="card-body">
+								<div class="row">
+									  <div class="col-sm-4">
+									    <div class="card">
+									      <div class="card-header">
+									        <div class="row row-cols-4 row-cols-md-1 g-1" >
+									        	<div class="col">
+												    <div class="card">
+												      <div class="card-body">
+												        <h6 class="card-title">카드</h6>
+												        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_AMT }" pattern="#,###" /></p>
+						
+												      </div>
+												    </div>
+												</div>
+												 <div class="col">
+												    <div class="card">
+												       <div class="card-body">
+												        <h6 class="card-title">현금</h6>
+												        <p class="card-text"><p class="card-text"><fmt:formatNumber value="${sumInfo.M_AMT }" pattern="#,###" /></p>
+												      </div>
+												    </div>
+												  </div>
+												  <div class="col">
+												    <div class="card">
+												       <div class="card-body">
+												        <h6 class="card-title">이체</h6>
+												        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_AMT }" pattern="#,###" /></p>
+												      </div>
+												    </div>
+												  </div>
+												  <div class="col">
+												    <div class="card">					      
+												      <div class="card-body">
+												        <h6 class="card-title fw-bold">총 합계</h6>
+												        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_AMT + sumInfo.M_AMT +sumInfo.C_AMT }" pattern="#,###" /></p>
+												      </div>
+												    </div>
+												  </div>
+									        </div>
+									      </div>
+									    </div>
+									  </div>
+									  <div class="col-sm-4">
+									     <div class="card">
+									      <div class="card-header">
+									        <div class="row row-cols-4 row-cols-md-1 g-1" >
+									        <div class="col">
+											    <div class="card">
+											      <div class="card-body">
+											        <h6 class="card-title">수입 카드</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_INCOME}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+											    <div class="col">
+											    <div class="card">
+											       <div class="card-body">
+											        <h6 class="card-title">수입 현금</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.M_INCOME}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+											  <div class="col">
+											    <div class="card">
+											       <div class="card-body">
+											        <h6 class="card-title">수입 이체</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_INCOME}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+											  <div class="col">
+											    <div class="card">					      
+											      <div class="card-body">
+											        <h6 class="card-title fw-bold">수입 총 합계</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_INCOME + sumInfo.M_INCOME +sumInfo.C_INCOME}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+									        </div>
+									      </div>
+									    </div>
+									  </div>
+									   <div class="col-sm-4">
+									     <div class="card">
+									      <div class="card-header">
+									        <div class="row row-cols-4 row-cols-md-1 g-1" >
+									         <div class="col">
+											    <div class="card">
+											      <div class="card-body">
+											        <h6 class="card-title">PAY 카드</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.C_PAY}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+											  <div class="col">
+											    <div class="card">
+											       <div class="card-body">
+											        <h6 class="card-title">PAY 현금</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.M_PAY}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+											  <div class="col">
+											    <div class="card">
+											       <div class="card-body">
+											        <h6 class="card-title">PAY 이체</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_PAY}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+											  <div class="col">
+											    <div class="card">					      
+											      <div class="card-body">
+											        <h6 class="card-title fw-bold">PAY 총 합계</h6>
+											        <p class="card-text"><fmt:formatNumber value="${sumInfo.T_PAY + sumInfo.M_PAY +sumInfo.C_PAY}" pattern="#,###" /></p>
+											      </div>
+											    </div>
+											  </div>
+									        </div>
+									      </div>
+									    </div>
+									  </div>
+								</div>
+								<i class="fas fa-table me-1"></i>
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                        	<th>날짜</th>
-                                            <th>이름</th>
-                                            <th>수업</th>
-                                            <th>비율</th>
-                                            <th>결제방법</th>
-                                            <th>결제금액</th>
-                                            <th>PAY</th>
-                                            <th>수입</th>
-                                            <th>환불일자</th>
-                                            <th>환불금액</th>
+                                        	<th class="text-center">날짜</th>
+                                            <th class="text-center">이름</th>
+                                            <th class="text-center">수업</th>
+                                            <th class="text-center">비율</th>
+                                            <th class="text-center">결제방법</th>
+                                            <th class="text-center">결제금액</th>
+                                            <th class="text-center">PAY</th>
+                                            <th class="text-center">수입</th>
+                                            <th class="text-center">환불일자</th>
+                                            <th class="text-center">환불금액</th>
                                         </tr>
                                     </thead>
                                     <tbody>

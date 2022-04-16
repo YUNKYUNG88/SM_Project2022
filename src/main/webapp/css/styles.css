@@ -727,6 +727,16 @@ progress {
   width: auto;
 }
 
+.col-99 {
+  flex: 0 0 auto;
+  width: 2%;
+}
+
+.col-0 {
+  flex: 0 0 auto;
+  width: 6%;
+}
+
 .col-1 {
   flex: 0 0 auto;
   width: 8.33333333%;
@@ -3043,16 +3053,27 @@ textarea.form-control-lg {
   pointer-events: none;
   opacity: 0.65;
 }
-
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
 .btn-primary {
   color: #fff;
   background-color: #0d6efd;
   border-color: #0d6efd;
 }
-.btn-primary:hover {
+
+.btn-gray {
   color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: #e0e0e0 ;
+  border-color: #e0e0e0 ;
+}
+
+.btn-ligthpurple {
+  color: #fff;
+  background-color: #f3e5f5;
+  border-color: #f3e5f5;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -3263,6 +3284,11 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #1c1f23;
   border-color: #1a1e21;
+}
+.btn-darkgray {
+  color: #fff;
+  background-color: #424242 ;
+  border-color: #424242;
 }
 .btn-check:focus + .btn-dark, .btn-dark:focus {
   color: #fff;
@@ -7826,6 +7852,12 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-gray {
+  --bs-bg-opacity: 1;
+  background-color:#eeeeee;
+}
+
+
 .bg-secondary {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
@@ -11449,7 +11481,7 @@ body {
 }
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
   padding: 1.75rem 1rem 0.75rem;
-  font-size: 0.75rem;
+  font-size: 1.75rem;
   font-weight: bold;
   text-transform: uppercase;
 }
