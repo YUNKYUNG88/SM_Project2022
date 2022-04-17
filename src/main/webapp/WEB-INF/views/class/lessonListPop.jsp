@@ -60,47 +60,44 @@
                         </form>
                        	<form name="frm" id="frm" action="/lessonIns" method="post">
 						<input type="hidden" name="classSeq" value="${params.classSeq}"/>
-							
-							
-						</form>
-               
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <div class="row g-2 mb-3">
-								  <div class="col-md">
-								    <div class="input-group mb-3">
-									  <span class="input-group-text" id="basic-addon1">날짜</span>
-									  <input type="text" class="form-control" aria-label="classDate" name="classDate" id="classDate" value="" aria-describedby="basic-addon1">
-									   <span class="input-group-text" id="basic-addon1">시간</span>
-									  <input type="text" id="classTime" name="classTime" class="form-control" value="">
-									  <button type="button" class="btn btn-darkgray"  onclick="createLesson();">등록</button>
+	                        <div class="card mb-4">
+	                            <div class="card-header">
+	                                <div class="row g-2 mb-3">
+									  <div class="col-md">
+									    <div class="input-group mb-3">
+										  <span class="input-group-text" id="basic-addon1">날짜</span>
+										  <input type="text" class="form-control" aria-label="classDate" name="classDate" id="classDate" value="" aria-describedby="basic-addon1">
+										   <span class="input-group-text" id="basic-addon1">시간</span>
+										  <input type="text" id="classTime" name="classTime" class="form-control" value="">
+										  <button type="button" class="btn btn-darkgray"  onclick="createLesson();">등록</button>
+										</div>
+									  </div>
 									</div>
-								  </div>
-								</div>
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>날짜</th>
-                                            <th>시간</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    	<c:forEach items="${lessonList}" var="lesson">
-                                    		<tr>
-	                                            <td>${lesson.CLASS_DATE}</td>
-	                                            <td>${lesson.CLASS_TIME}</td>
-	                                            <td><button type="button" class="btn btn-gray text-dark btn-sm"  onclick="deleteLesson('${lesson.SEQ}');">삭제</button></td>
+	                            </div>
+	                            <div class="card-body">
+	                                <table id="datatablesSimple">
+	                                    <thead>
+	                                        <tr>
+	                                            <th>날짜</th>
+	                                            <th>시간</th>
+	                                            <th></th>
 	                                        </tr>
-                                    	</c:forEach>
-                                        
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+	                                    </thead>
+	                                    <tbody>
+	                                    	<c:forEach items="${lessonList}" var="lesson">
+	                                    		<tr>
+		                                            <td>${lesson.CLASS_DATE}</td>
+		                                            <td>${lesson.CLASS_TIME}</td>
+		                                            <td><button type="button" class="btn btn-gray text-dark btn-sm"  onclick="deleteLesson('${lesson.SEQ}');">삭제</button></td>
+		                                        </tr>
+	                                    	</c:forEach>
+	                                        
+	                                       
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                        </div>
+                        </form>
                     </div>
                 </main>
             </div>
